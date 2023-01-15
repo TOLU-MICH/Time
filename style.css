@@ -1,0 +1,493 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #e3edf7;
+  height: 100vh;
+}
+
+.font {
+  font-size: 1.6rem;
+  margin: 0;
+  font-weight: 700;
+  color: #ff1e7d;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container {
+  margin-top: 9rem;
+}
+
+.time-container {
+  width: 25rem;
+  height: 25rem;
+  position: relative;
+}
+
+.outer {
+  height: 25rem;
+  width: 25rem;
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  border: 9px solid darkgrey;
+}
+
+.inner {
+  height: 21rem;
+  width: 21rem;
+  border-radius: 50%;
+  box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.2) inset,
+    -4px -4px 6px -1px rgba(255, 255, 255, 0.7) inset,
+    -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+}
+
+.font-bold {
+  font-weight: 600;
+  font-size: 3rem;
+  color: #ff1e7d;
+  margin: 0;
+}
+
+.font-bolder {
+  font-weight: 600;
+  font-size: 6.7rem;
+  color: #ff1e7d;
+  margin: 0;
+}
+
+circle {
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  stroke-dasharray: 720;
+  stroke-dashoffset: 720;
+  /* animation: anim 2s linear forwards; */
+}
+
+#svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card {
+  width: 195px;
+  height: 194px;
+  background-color: #cdd8e4;
+  /* background-color: #acbac9; */
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-header {
+  background-color: rgb(192, 186, 186);
+  height: 40px;
+}
+
+.card p {
+  font-size: 16px;
+}
+
+.card-body {
+  height: 12rem;
+}
+
+.icon {
+  width: 28px;
+  height: 29px;
+  padding-right: 5px;
+}
+
+.no-alarm {
+  width: 8rem;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    height: auto;
+  }
+  #container {
+    flex-direction: column;
+    margin: 0;
+  }
+  .time-container {
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  .card {
+    width: 18rem;
+    height: 16rem;
+  }
+  .card-container {
+    gap: 0.5rem;
+    margin: auto;
+  }
+  /* #month-day { */
+  /* font-size: 6rem; */
+  /* } */
+}
+
+@media screen and (min-width: 720px) {
+  section:nth-of-type(1) {
+    margin-right: 9rem;
+  }
+}
+
+.card .card-body {
+  flex-direction: column;
+}
+
+.card-header p {
+  padding-right: 3.5rem;
+}
+
+#alarm-content .font{
+  color: #acbac9;
+}
+
+#date-content {
+  display: grid;
+  grid-template-areas:
+    "a a b b"
+    "a a c c"
+    "d d c c";
+}
+
+#date-content > p {
+  margin: 0;
+  color: #ff1e7d;
+}
+
+#month-day {
+  grid-area: a;
+    font-weight: bold;
+    font-size: 6rem;
+  }
+  
+  #month {
+    padding-top: 1rem;
+    font-weight: bolder;
+    grid-area: b;
+  }
+  
+  #year {
+    grid-area: c;
+    font-weight: bold;
+}
+
+#day {
+  grid-area: d;
+  font-size: 2rem;
+  font-weight: 700;
+  padding-left: 1rem;
+}
+
+.set-alarm {
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+select {
+  border: none;
+  outline: none;
+  padding: 10px;
+  background: #eef0f4;
+  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #d9dade;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+label {
+  margin-right: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.set-alarm-btn,
+.create-countdown-btn, .clear-alarm-btn {
+  outline: none;
+  border: none;
+  background-color: #eef0f4;
+  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #d9dade;
+  padding: 0.8rem 1.3rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #ff1e7d;
+  margin-bottom: 5px;
+}
+
+.clear-alarm-btn {
+  position: absolute;
+  right: 13rem;
+    top: 23rem;
+}
+
+.set-alarm-box {
+  display: none;
+  align-items: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.alarm-item {
+  color: black;
+  font-size: 1.6rem;
+}
+
+.alarm-item .icon {
+  margin-left: 2rem;
+}
+
+.time-container.alarm-active::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #ff1e7d;
+  z-index: -1;
+  border-radius: 50%;
+  animation: pulse 800ms infinite;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.time-container.alarm-active::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url("./files/gif.gif");
+  position: fixed;
+  top: -50%;
+  border-radius: 50%;
+  animation: showGif 3s forwards;
+}
+
+@keyframes showGif {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+#stopwatch-content {
+  flex-direction: row;
+}
+
+#stopwatch-content .font {
+  color: #555;
+}
+
+.button-wrapper {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.button {
+  width: 6rem;
+  height: 6rem;
+  border: 3px solid white;
+  background-color: #e3edf7;
+  border-radius: 50%;
+  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #d9dade;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.li-container {
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+.li-container li {
+  padding: 1rem;
+  border-top: 1px inset #555;
+  border-bottom: 1px outset #555;
+}
+.li-number {
+  padding-right: 5rem;
+}
+
+input {
+  border-radius: 15%;
+  outline: none;
+  border: 3px solid white;
+  background-color: #e3edf7;
+  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #d9dade;
+}
+.slash {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+.countdown-calender {
+  position: relative;
+  height: 6rem;
+}
+
+.countdown-calender:nth-of-type(1) .countdown-child:nth-of-type(3) {
+  position: absolute;
+  top: 0;
+  left: 216px;
+}
+.countdown-calender:nth-of-type(2) .countdown-child:nth-of-type(1) {
+  position: absolute;
+  left: -18px;
+  top: 0;
+}
+.countdown-calender:nth-of-type(2) .countdown-child:nth-of-type(2) {
+  right: 64px;
+  left: 65px;
+  position: absolute;
+  top: 0;
+}
+.countdown-calender:nth-of-type(2) .countdown-child:nth-of-type(3) {
+  position: absolute;
+  top: 0;
+  left: 154px;
+}
+.countdown-child {
+  margin-bottom: 5px;
+}
+table {
+  margin-top: 7px;
+  background-color: #e3edf7;
+  font-size: 12px;
+  border-radius: 10%;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+td {
+  padding: 1rem;
+}
+td li:hover {
+  background-color: #555;
+}
+li {
+  list-style: none;
+}
+.countdown-container p {
+  color: #ff1e7d;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: underline;
+  margin: 0;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.countdown-container .create-countdown-btn {
+  margin: auto;
+}
+
+.countdown-time label {
+  font-size: 15px;
+}
+.countdown-time .font-bold {
+  font-size: 4.7rem;
+}
+
+.countdown-bar .outer {
+  width: 34rem;
+  height: 20rem;
+  border-radius: 5%;
+  border: 0;
+}
+.countdown-bar .inner {
+  width: 30rem;
+  height: 16rem;
+  background-color: #e3edf7;
+  border-radius: 5%;
+  border: 0;
+}
+.countdown-bar #svg {
+  display: none;
+}
+
+.countdown-animation {
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    orange,
+    #e73c7e,
+    #23a6d5,
+    #23d5ab
+  );
+  background-size: 400% 400%;
+  background-position: 40% 40%;
+  animation: gradient 7s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+f
+@media screen and (min-width: 720px) {
+  
+  .countdown-calender{
+    margin-bottom: 1rem;
+  } 
+    #month-day {
+      font-size: 7.7rem;
+    }
+    
+    #day {
+      font-size: 2.5rem;
+    }
+}

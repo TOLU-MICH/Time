@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timest</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="flex" id="container">
+      <section >
+        <div class="time-container  flex">
+          <div class="outer">
+            <div class="inner flex">
+              <span class="time font-bold"></span>
+              <span class="display-stopwatch hidden">
+                <span class="hours font-bold"></span>
+                <span class="minutes font-bold">&nbsp;</span>
+                <span class="seconds font-bold">&nbsp;0 :</span>
+                <span class="centiseconds font">0</span>
+              </span>
+            </div>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            width="250px"
+            height="250px"
+            id="svg"
+          >
+            <defs>
+              <linearGradient id="GradientColor">
+                <stop offset="0%" stop-color="#e91e63" />
+                <stop offset="100%" stop-color="#673ab7" />
+              </linearGradient>
+            </defs>
+            <circle
+              cx="125"
+              cy="125"
+              r="115"
+              stroke-linecap="round"
+              id="circle"
+            />
+          </svg>
+        </div>
+        <div class="button-wrapper flex hidden">
+          <button class="button font reset hidden">Reset</button>
+          <button class="button font play hidden">Play</button>
+          <button class="button font lap hidden">Lap</button>
+        </div>
+        <div class="set-alarm-box">
+          <div class="set-alarm flex">
+            <div>
+              <label for="hour">Hour :</label>
+              <select id="hour"></select>
+            </div>
+            <div>
+              <label for="minutes">Minutes :</label
+              ><select id="minutes"></select>
+            </div>
+            <div>
+              <label for="meridiam"></label
+              ><select id="meridiam">
+                <option>AM</option>
+                <option>PM</option>
+              </select>
+            </div>
+          </div>
+          <button class="set-alarm-btn">Set Alarm</button>
+        </div>
+        <div class="countdown-container hidden">
+          <div class="countdown-calender flex">
+            <div class="countdown-child">
+              <label for="countdown-year">Year:</label>
+              <input
+                type="text"
+                id="countdown-year"
+                name="countdown-year"
+                size="2"
+                maxlength="4"
+                placeholder="yyyy"
+                list="year-list"
+              />
+              <span class="slash">&nbsp/&nbsp</span>
+              <datalist id="year-list"> </datalist>
+            </div>
+            <div class="countdown-child">
+              <label for="countdown-month">Month:</label>
+              <input
+                type="text"
+                id="countdown-month"
+                name="countdown-month"
+                size="2"
+                maxlength="2"
+                placeholder="mm"
+                list="month-list"
+              /><span class="slash">&nbsp/&nbsp</span>
+              <datalist id="month-list"> </datalist>
+            </div>
+            <div class="countdown-child">
+              <label for="countdown-day">Day:</label>
+              <input
+                type="text"
+                id="countdown-day"
+                name="countdown-day"
+                size="1"
+                maxlength="2"
+                placeholder="dd"
+                list="day-list"
+              />
+              <table>
+                <tbody id="day-list" class="hidden"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="countdown-calender flex hidden">
+            <div class="countdown-child">
+              <label for="countdown-hour">Hour:</label>
+              <input
+                type="text"
+                id="countdown-hour"
+                name="countdown-hour"
+                size="2"
+                maxlength="2"
+                placeholder="hh"
+                list="hour-list"
+              /><span class="slash">&nbsp/&nbsp</span>
+              <table id="countdwn-hour">
+                <tbody id="hour-list" class="hidden"></tbody>
+              </table>
+            </div>
+            <div class="countdown-child">
+              <label for="countdown-minutes">Minutes</label>
+              <input
+                type="text"
+                id="countdown-minutes"
+                name="countdown-minutes"
+                size="2"
+                maxlength="2"
+                placeholder="mm"
+                list="minutes-list"
+              /><span class="slash">&nbsp/&nbsp</span>
+              <table>
+                <tbody id="minutes-list" class="hidden"></tbody>
+              </table>
+            </div>
+            <div class="countdown-child">
+              <label for="countdown-seconds">Seconds:</label>
+              <input
+                type="text"
+                id="countdown-seconds"
+                name="countdown-seconds"
+                size="2"
+                maxlength="2"
+                placeholder="ss"
+                list="seconds-list"
+              />
+              <table>
+                <tbody id="seconds-list" class="hidden"></tbody>
+              </table>
+            </div>
+          </div>
+          <button class="create-countdown-btn flex">Create countDown</button>
+        </div>
+      </section>
+        <ul class="li-container flex hidden"></ul>
+      <section>
+
+        <div class="card-container">
+          <div class="card alarm">
+            <div class="card-header flex">
+              <img src="image/alarm.svg" alt="" class="icon" />
+              <p>Alarm</p>
+              <img src="image/add-svgrepo-com.svg" alt="" class="icon add" />
+            </div>
+            <div class="card-body flex" id="alarm-content">
+              <img
+                src="image/alarm-off-svgrepo-com.svg"
+                alt=""
+                class="no-alarm"
+              />
+              <p class="font">No alarm</p>
+            </div>
+          </div>
+          <div class="card date">
+            <div class="card-header flex">
+              <img src="image/date.svg" alt="" class="icon" />
+              <p>Date</p>
+            </div>
+            <div class="card-body" id="date-content"></div>
+          </div>
+          <div class="card stopwatch">
+            <div class="card-header flex">
+              <img src="image/timer.svg" alt="" class="icon Stopwatch-icon" />
+              <p id="stopwatch-text">Stopwatch</p>
+            </div>
+            <div class="card-body flex" id="stopwatch-content">
+              <span class="flex" id="stopwatch-content-child">
+                <span class="font-bolder">&nbsp;0 </span>
+                <span class="font">:&nbsp;0</span>
+              </span>
+              <span class="time-watch font-bold hidden"></span>
+            </div>
+          </div>
+          <div class="card countdown">
+            <div class="card-header flex">
+              <img src="image/countdown.svg" alt="" class="icon countdown-icon" />
+              <p id="countdown-text">countdown</p>
+            </div>
+            <div class="card-body flex" id="countdown-content"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  <script src="index.js"></script>
+  </body>
+</html>
